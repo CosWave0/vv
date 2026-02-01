@@ -1,128 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Will You Be My Valentine?</title>
+<script>
+  const yesBtn = document.getElementById("yes");
+  const noBtn = document.getElementById("no");
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
-      overflow: hidden;
-      font-family: Arial, sans-serif;
+  function yesAction() {
+    for (let i = 0; i < 50; i++) {
+      createPetal("🌹");
     }
+  }
 
-    .container {
-      text-align: center;
-      position: relative;
+  function noAction() {
+    for (let i = 0; i < 50; i++) {
+      createPetal("🌹 Me too!!");
     }
+  }
 
-    h1 {
-      font-size: 3rem;
-      color: #b3003b;
-    }
+  yesBtn.onclick = yesAction;
+  noBtn.onclick = noAction;
 
-    .name {
-      font-size: 1.3rem;
-      color: #7a0026;
-      margin-bottom: 30px;
-      font-style: italic;
-    }
+  function createPetal(text) {
+    const petal = document.createElement("div");
+    petal.className = "petal";
+    petal.innerText = text;
+    petal.style.left = Math.random() * window.innerWidth + "px";
+    petal.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(petal);
 
-    button {
-      font-size: 1.5rem;
-      padding: 12px 30px;
-      margin: 10px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-    }
-
-    #yes {
-      background-color: #ff3366;
-      color: white;
-    }
-
-    #no {
-      background-color: #444;
-      color: white;
-    }
-
-    .petal {
-      position: fixed;
-      top: -40px;
-      font-size: 24px;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0.8;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="container">
-    <h1>Will you be my Valentine? 💖</h1>
-    <div class="name">— With love, Sovan 💕</div>
-
-    <button id="yes">Yes ❤️</button>
-    <button id="no">No 💔</button>
-  </div>
-
-  <script>
-    const yesBtn = document.getElementById("yes");
-    const noBtn = document.getElementById("no");
-
-    function yesAction() {
-      for (let i = 0; i < 50; i++) {
-        createPetal();
-         function noAction() {
-      for (let i = 0; i < 50; i++) {
-        createPetal0();
-      }
-    }
-
-    yesBtn.onclick = yesAction;
-    noBtn.onclick = noAction; 
-
-    function createPetal() {
-      const petal = document.createElement("div");
-      petal.className = "petal";
-      petal.innerText = "🌹";
-      petal.style.left = Math.random() * window.innerWidth + "px";
-      petal.style.animationDuration = (Math.random() * 3 + 2) + "s";
-      document.body.appendChild(petal);
-
-      setTimeout(() => {
-        petal.remove();
-      }, 6000);
-    }
-        function createPetal0() {
-      const petal = document.createElement("div");
-      petal.className = "petal";
-      petal.innerText = "🌹 Me too!!";
-      petal.style.left = Math.random() * window.innerWidth + "px";
-      petal.style.animationDuration = (Math.random() * 3 + 2) + "s";
-      document.body.appendChild(petal);
-
-      setTimeout(() => {
-        petal.remove();
-      }, 6000);
-        }
-  </script>
-
-</body>
-</html>
+    setTimeout(() => {
+      petal.remove();
+    }, 6000);
+  }
+</script>
